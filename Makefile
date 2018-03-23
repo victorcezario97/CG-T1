@@ -1,6 +1,9 @@
 all:
 	gcc -o main src/main.c -I./include src/utils.c src/CG.c -lm -Wall `sdl2-config --cflags --libs`
 
+install:
+	sudo apt-get install libsdl2-dev
+
 run:
 	./main 10
 	./main 50
