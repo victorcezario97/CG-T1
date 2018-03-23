@@ -1,7 +1,5 @@
 all:
 	gcc -o main src/main.c -I./include src/utils.c src/CG.c -lm -Wall `sdl2-config --cflags --libs`
-	gcc -o coordenadaPolar src/coordenadaPolar.c -I./include src/utils.c -lm `sdl2-config --cflags --libs`
-	gcc -o eqCircunferencia src/eqCircunferencia.c -I./include src/utils.c -lm `sdl2-config --cflags --libs`
 
 run:
 	./main 10
@@ -10,7 +8,12 @@ run:
 	./main 1000
 	./main 2500
 
+show:
+	./main 10 1
+	./main 100 1
+	./main 500 1
+	./main 1000 1
+	./main 2500 1
+
 clean:
-	rm pontoMedio
-	rm eqCircunferencia
-	rm coordenadaPolar
+	rm main
