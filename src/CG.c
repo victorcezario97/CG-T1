@@ -33,16 +33,16 @@ clock_t pontoMedio(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 
 //Function that applies the "Coordenadas Polares" algorithm and returns the time it took
 clock_t coordenadaPolar(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
-	int x, y, angle = 90;
+	double x = 1, y = 0, angle = 0, var_angle = 1/(double)r;
 	clock_t tStart, tEnd;
 
 	tStart = clock();
-    while(angle >= 45)
+    while(x > y)
     {
+        angle += var_angle;
         x = r*cos(angle);
         y = r*sin(angle);
         draw8Points(x, y, renderer, sizeX, sizeY);
-        angle--;
     }
     tEnd = clock();
 
@@ -52,7 +52,7 @@ clock_t coordenadaPolar(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 //Function that applies the "Equação da Circunferência" algorithm and returns the time it took
 clock_t eqCircunferencia(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 	int x = 0;
-	double y;
+	double y = 1;
 	clock_t tStart, tEnd;
 
 	tStart = clock();
