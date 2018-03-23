@@ -8,18 +8,18 @@ int main(int argc, char *argv[])
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 	char a;
-	int x, y, d, xx, yy, sizeX, sizeY, deltaE, deltaSE;
+	int x, y, d, xx, yy, sizeX, sizeY, deltaE, deltaSE, r;
 	clock_t tStart, tEnd;
 
-	if(argc != 4){
-		printf("Usage: ./pontoMedio SIZEX SIZEY Radius\n");
+	if(argc != 2){
+		printf("Usage: ./pontoMedio Radius\n");
 		return -1;
 	}
-	getArgs(argv, &sizeX, &sizeY, &r);
+	getArgs(argv, &r);
+
+	sizeX = sizeY = r*2+10;
 
 	SDL_CreateWindowAndRenderer(sizeX, sizeY, 0, &window, &renderer);
-
-	//drawCoord(sizeX, sizeY, renderer);
 
 	x = 0; 
 	y = r; 

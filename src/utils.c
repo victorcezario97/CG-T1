@@ -53,8 +53,6 @@ int stringToInt(char *string){
 		n += (string[i]-48) * (pow(10, (size-1)-i));
 }
 
-void getArgs(char *argv[], int *sizeX, int *sizeY, int *r){
-	(*sizeX) = stringToInt(argv[1]);
-	(*sizeY) = stringToInt(argv[2]);
-	(*r) = stringToInt(argv[3]);
+void getArgs(char *argv[], int *r){
+	(*r) = stringToInt(argv[1]);
 }
