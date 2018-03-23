@@ -39,5 +39,10 @@ int main(int argc, char *argv[])
 	printf("Raio: %d --> %ldms\n", r, tEnd - tStart);
 
 //	SDL_RenderPresent(renderer);
+
+	SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    
 	return 0;
 }
