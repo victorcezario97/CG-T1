@@ -26,4 +26,5 @@ show:
 	./main 3000 1
 
 clean:
-	rm main
+	-rm main -f
+	-rm data.csv -f
