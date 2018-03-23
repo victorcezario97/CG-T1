@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <utils.h>
 
+//Function that applies the "Ponto Médio" algorithm and returns the time it took
 clock_t pontoMedio(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 	int x = 0, y = r, d = 1-r, deltaE, deltaSE;
 	clock_t tStart, tEnd;
@@ -30,6 +31,7 @@ clock_t pontoMedio(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 	return tEnd - tStart;
 }
 
+//Function that applies the "Coordenadas Polares" algorithm and returns the time it took
 clock_t coordenadaPolar(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 	int x, y, angle = 90;
 	clock_t tStart, tEnd;
@@ -47,6 +49,7 @@ clock_t coordenadaPolar(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
     return tEnd - tStart;
 }
 
+//Function that applies the "Equação da Circunferência" algorithm and returns the time it took
 clock_t eqCircunferencia(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 	int x = 0;
 	double y;
