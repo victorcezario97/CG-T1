@@ -51,6 +51,8 @@ int stringToInt(char *string){
 
 	for(int i=size-1; i>=0; i--)
 		n += (string[i]-48) * (pow(10, (size-1)-i));
+
+	return n;
 }
 
 void getArgs(char *argv[], int *r){

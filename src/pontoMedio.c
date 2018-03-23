@@ -3,29 +3,11 @@
 #include <time.h>
 #include <utils.h>
 
-int main(int argc, char *argv[])
-{
-	SDL_Window *window;
-	SDL_Renderer *renderer;
-	char a;
-	int x, y, d, xx, yy, sizeX, sizeY, deltaE, deltaSE, r;
-	clock_t tStart, tEnd;
+time_t pontoMedio(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
+	int x = 0, y = r, d = 1-r, deltaE, deltaSE;
+	time_t tStart, tEnd;
 
-	if(argc != 2){
-		printf("Usage: ./pontoMedio Radius\n");
-		return -1;
-	}
-	getArgs(argv, &r);
-
-	sizeX = sizeY = r*2+10;
-
-	SDL_CreateWindowAndRenderer(sizeX, sizeY, 0, &window, &renderer);
-
-	x = 0; 
-	y = r; 
-	d = 1-r;
-	deltaE = 3;
-	deltaSE = -2*r + 5;
+	deltaE = 3;	deltaSE = -2*r + 5;
 
 	draw8Points(x, y, renderer, sizeX, sizeY);
 
@@ -46,7 +28,29 @@ int main(int argc, char *argv[])
 	}
 	tEnd = clock();
 
-	printf("Raio: %d --> %ldms\n", r, tEnd - tStart);
+	return tEnd - tStart;
+}
+
+int main(int argc, char *argv[])
+{
+	SDL_Window *window;
+	SDL_Renderer *renderer;
+	int x, y, d, sizeX, sizeY, deltaE, deltaSE, r;
+	clock_t t;
+
+	if(argc != 2){
+		printf("Usage: ./pontoMedio Radius\n");
+		return -1;
+	}
+	getArgs(argv, &r);
+
+	sizeX = sizeY = r*2+10;
+
+	SDL_CreateWindowAndRenderer(sizeX, sizeY, 0, &window, &renderer);
+
+	t = pontoMedio(r, sizeX, sizeY, renderer);
+
+	printf("Raio: %d --> %ldms\n", r, t);
 
 	SDL_RenderPresent(renderer);
 	SDL_Delay(5000);
