@@ -48,6 +48,8 @@ int main(int argc, char *argv[])
 
 	printf("Raio: %d --> %ldms\n", r, tEnd - tStart);
 
-//	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(renderer);
+	SDL_Delay(5000);
+	
 	return 0;
 }
