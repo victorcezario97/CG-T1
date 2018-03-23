@@ -5,28 +5,34 @@ install:
 	sudo apt-get install libsdl2-dev
 
 run:
+	./main 1
+	./main 5
 	./main 10
+	./main 25
 	./main 50
+	./main 75
 	./main 100
-	./main 500
-	./main 1000
-	./main 1500
-	./main 2000
-	./main 2500
-	./main 2750
-	./main 3000
+	./main 150
+	./main 200
+	./main 250
+	./main 300
+	./main 350
+	./main 400
 
 show:
+	./main 1 1
+	./main 5 1
 	./main 10 1
+	./main 25 1
 	./main 50 1
+	./main 75 1
 	./main 100 1
-	./main 500 1
-	./main 1000 1
-	./main 1500 1
-	./main 2000 1
-	./main 2500 1
-	./main 2750 1
-	./main 3000 1
+	./main 150 1
+	./main 200 1
+	./main 250 1
+	./main 300 1
+	./main 350 1
+	./main 400 1
 
 clean:
 	-rm main -f
