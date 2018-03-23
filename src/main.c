@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	//Sets the window size to fit the circumference
 	sizeX = sizeY = r*2+10;
 
+	//"Initializes" the .csv file if its the first test case
 	if(r == 10){
 		fp = fopen("data.csv", "w");
 		fprintf(fp, ";Ponto Medio(ms);Coordenada Esferica(ms);Equacao da Circunferencia(ms);\n");
@@ -35,6 +36,7 @@ int main(int argc, char *argv[])
 	}
 
 	fp = fopen("data.csv", "a");
+	//Prints the radius to the .csv file
 	fprintf(fp, "%dpx;", r);
 
 	SDL_CreateWindowAndRenderer(sizeX, sizeY, 0, &window, &renderer);
@@ -47,7 +49,9 @@ int main(int argc, char *argv[])
 
 	//Prints the average time for the radius
 	printf("Ponto Medio --> Raio: %d --> %ldms\n", r, t/150);
+	//Prints the time to the .csv file
 	fprintf(fp, "%li;", t/150);
+	
 	//Shows the circumference
 	if(flag == 1){
 		SDL_RenderPresent(renderer);
@@ -62,6 +66,7 @@ int main(int argc, char *argv[])
 
 	//Prints the average time for the radius
 	printf("Coordenada Polar --> Raio: %d --> %ldms\n", r, t/150);
+	//Prints the time to the .csv file
 	fprintf(fp, "%li;", t/150);
 	
 	//Shows the circumference
@@ -78,6 +83,7 @@ int main(int argc, char *argv[])
 
 	//Prints the average time for the radius
 	printf("Equacao da Circunferencia --> Raio: %d --> %ldms\n", r, t/150);
+	//Prints the time to the .csv file
 	fprintf(fp, "%li;\n", t/150);
 
 	//Shows the circumference
