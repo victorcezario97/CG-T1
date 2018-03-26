@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 	char a;
-	int r, x, y, h, xx, yy, sizeX, sizeY;
+	int x, y, d, xx, yy, sizeX, sizeY, deltaE, deltaSE;
 	clock_t tStart, tEnd;
 
 	if(argc != 4){
@@ -21,17 +21,27 @@ int main(int argc, char *argv[])
 
 	//drawCoord(sizeX, sizeY, renderer);
 
-	x = 0; y = r; h = 1-r;
+	x = 0; 
+	y = r; 
+	d = 1-r;
+	deltaE = 3;
+	deltaSE = -2*r + 5;
+
+	draw8Points(x, y, renderer, sizeX, sizeY);
 
 	tStart = clock();
-	while(y>x){
-		if(h < 0){
-			h += 2*(x) + 3;
-			x++;
+	while(y > x){
+		if(d < 0){
+			d += deltaE;
+			deltaE += 2;
+			deltaSE += 2;
 		}else{
-			h += 2*((x)-(y)) + 5;
-			x++; y--;
+			d += deltaSE;
+			deltaE += 2;
+			deltaSE += 4;
+			y--;
 		}
+		x++;
 		draw8Points(x, y, renderer, sizeX, sizeY);
 	}
 	tEnd = clock();
@@ -39,10 +49,5 @@ int main(int argc, char *argv[])
 	printf("Raio: %d --> %ldms\n", r, tEnd - tStart);
 
 //	SDL_RenderPresent(renderer);
-
-	SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    
 	return 0;
 }
