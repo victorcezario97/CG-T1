@@ -37,7 +37,7 @@ clock_t coordenadaPolar(int r, int sizeX, int sizeY, SDL_Renderer *renderer){
 	clock_t tStart, tEnd;
 
 	tStart = clock();
-    while(x < y)
+    while(x <= y)
     {
         angle -= var_angle;
         x = r*cos(angle);
